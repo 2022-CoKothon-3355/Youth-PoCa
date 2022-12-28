@@ -51,7 +51,7 @@ pocaInfoController.create = (req, res, next) => {
 
 pocaInfoController.findAll = (req, res, next) => {
     var model = {
-        ownerId: req.params.ownerId,
+        ownerId: req.query.ownerId,
     };
 
     pocaInfoService.getPocas(model, (error, results) => {
