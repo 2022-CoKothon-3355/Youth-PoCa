@@ -9,8 +9,11 @@ router.get('/:userId', (req, res) => {
 })
 
 router.post('/:userId', (req, res) => {
-    pocaInfoController.create()
-    pocaInfoController.save()
+    console.log("create")
+    console.log(req.body);
+    let userId = req.params.userId
+    pocaInfoController.create(req, res, userId)
+    console.log("Call save")
     res.send(JSON.stringify({"helloworld": "hahaha"}))
 })
 

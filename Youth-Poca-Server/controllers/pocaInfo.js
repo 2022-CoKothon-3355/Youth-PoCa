@@ -29,19 +29,33 @@ pocaInfoController.show = (req, res) => {
 
 // 포트폴리오 카드 생성
 
-pocaInfoController.create = function(req, res) {
-
+pocaInfoController.create = function(req, res, userId, pocaId) {
+    console.log(userId);
+    console.log(req.body);
+    let pocaInfo = new PocaInfo(
+    {
+        ownerId : userId,
+        pocaId : req.body.pocaId,
+        name: req.body.name,
+        email: req.body.email,
+        phoneNum: req.body.phoneNum,
+        address: req.body.address,
+        activity: req.body.activity,
+        description: req.body.description,
+        progress: req.body.progress,
+        isRepresent: req.body.isRepresent,
+        result: req.body.result,
+        sendTime: req.body.sendTime
+    });
+    pocaInfo.save();
 };
-
-
 
 
 // 포트폴리오 카드 저장
 
-pocaInfoController.save = (req, res) => {
-
-    let pocaInfo = new PocaInfo(req.body);
-
+pocaInfoController.save = async (req, res) => {
+    res.status(200).send({check:"저장되었습니다."});
+    res.redirect('/');
 };
 
 

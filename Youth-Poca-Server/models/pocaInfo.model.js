@@ -2,7 +2,7 @@ import mongoose from "mongoose"
 
 let PocaInfoSchema = new mongoose.Schema(
     {
-        ownwerId: String,
+        ownerId: String,
         pocaId: String,
         name: String,
         email: String,
@@ -13,7 +13,9 @@ let PocaInfoSchema = new mongoose.Schema(
         progress: String,
         isRepresent: Boolean,
         images:[String],
-        content:[String]
+        content:[String],
+        result: String,
+        sendTime: String
     })
 
 export const PocaInfo = mongoose.model("PocaInfo", PocaInfoSchema)
