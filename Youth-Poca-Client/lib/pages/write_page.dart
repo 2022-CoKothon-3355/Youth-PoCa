@@ -45,7 +45,7 @@ class _WritePageState extends State<WritePage> {
       if (ModalRoute.of(context)?.settings.arguments != null) {
         final Map arguments = ModalRoute.of(context)?.settings.arguments as Map;
         pocaInfo = arguments['model'];
-        isEditMode = true;
+        isEditMode = false;
         setState(() {});
       }
     });
@@ -390,7 +390,8 @@ class _WritePageState extends State<WritePage> {
                       });
                     });
                   }
-                  Navigator.pop(context);
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, '/main', (route) => false);
 
                   // dispose 하기
                 },

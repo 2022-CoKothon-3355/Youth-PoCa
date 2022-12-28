@@ -14,10 +14,11 @@ class APIService {
     Map<String, String> requestHeaders = {
       'Content-Type': 'application/json',
     };
-
+    final queryParam = {'ownerId': "1"};
     var url = Uri.http(
       Config.apiURL,
       Config.pocasAPI,
+      queryParam,
     );
     //var future = Future.delayed(Duration(seconds: 3), () => {print('error')});
 
@@ -87,8 +88,9 @@ class APIService {
     // }
 
     var response = await request.send();
-
+    print(response.reasonPhrase);
     if (response.statusCode == 200) {
+      print("hi");
       return true;
     } else {
       return false;
