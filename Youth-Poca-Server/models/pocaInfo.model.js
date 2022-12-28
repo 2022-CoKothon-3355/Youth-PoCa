@@ -1,19 +1,21 @@
 import mongoose from "mongoose"
 
-const PocaInfoSchema = new mongoose.Schema(
+let PocaInfoSchema = new mongoose.Schema(
     {
-        ownerId: String,
-        pocaId: String,
-        name: String,
-        email: String,
-        phoneNum: String,
-        address: String,
-        activity: String,
-        description: String,
-        progress: String,
-        isRepresent: Boolean,
-        images:[String],
-        content:[String]
+            ownerId: String,
+            pocaId: String,
+            name: String,
+            email: String,
+            phoneNum: String,
+            address: String,
+            activity: String,
+            description: String,
+            progress: Boolean,
+            isRepresent: Boolean,
+            images:[String],
+            content:[String],
+            result: String,
+            sendTime: String
     })
 
-export const PocaInfo = mongoose.model("PocaInfo", PocaInfoSchema)
+export const pocaInfo = mongoose.model("PocaInfo", PocaInfoSchema)

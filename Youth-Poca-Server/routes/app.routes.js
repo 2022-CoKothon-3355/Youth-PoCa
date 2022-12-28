@@ -1,4 +1,5 @@
 import productsController from "../controllers/products.controller.js";
+import pocaInfoController from "../controllers/pocaInfo.controller.js";
 import express from "express";
 
 const router = express.Router()
@@ -18,5 +19,19 @@ router.put("/products/:id", productsController.update);
 // // Delete a Product with id
 router.delete("/products/:id", productsController.delete);
 
+
+// Create a new Poca
+
+// Retrieve all Pocas
+router.get("/pocas", pocaInfoController.findAll)
+
+// Retrieve a single poca with poca id
+router.get('/pocas/:id', pocaInfoController.findOne)
+
+// Update a Poca with id
+router.put("/pocas/:id", pocaInfoController.update)
+
+// // Delete a Poca with id
+router.delete("/pocas/:id", pocaInfoController.delete);
 
 export default router
