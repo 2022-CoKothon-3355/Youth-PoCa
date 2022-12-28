@@ -23,17 +23,13 @@ pocaInfoService.createPoca = async (params, callback) => {
 
 pocaInfoService.getPocas = async (params, callback) => {
     const ownerId = params.ownerId;
-    let condition = ownerId ? {
-            ownerId: {$regex: new RegExp(ownerId), $option: "i"},
-        }
-        :{};
-
-    const pocaInfoModel = pocaInfo(params);
-    pocaInfoModel.save().then((response) => {
-        return callback(null, response)
-    }).catch((error) => {
+    pocaInfo
+        .find({ownerId})
+        .then((response) => {
+            return callback(null, response)
+        }).catch((error) => {
         return callback(error);
-    });
+    })
 }
 
 pocaInfoService.getPocaById = async (params, callback) => {

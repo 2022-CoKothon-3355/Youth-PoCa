@@ -3,7 +3,6 @@ import mongoose from "mongoose"
 let PocaInfoSchema = new mongoose.Schema(
     {
             ownerId: String,
-            pocaId: String,
             name: String,
             email: String,
             phoneNum: String,

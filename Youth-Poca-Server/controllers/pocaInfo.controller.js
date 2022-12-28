@@ -57,7 +57,7 @@ pocaInfoController.create = (req, res, next) => {
 
 pocaInfoController.findAll = (req, res, next) => {
     var model = {
-        ownerId: req.query.ownerId,
+        ownerId: req.body.ownerId,
     };
 
     pocaInfoService.getPocas(model, (error, results) => {
@@ -98,13 +98,26 @@ pocaInfoController.update = (req, res, next) => {
             const path =
                 req.file != undefined ? req.file.path.replace(/\\/g, "/") : "";
 
+            // var model = {
+            //     productId: req.params.id,
+            //     productName: req.body.productName,
+            //     productDescription: req.body.productDescription,
+            //     productPrice: req.body.productPrice,
+            //     productImage: path != "" ? url + "/" + path : "",
+            // };
             var model = {
-                productId: req.params.id,
-                productName: req.body.productName,
-                productDescription: req.body.productDescription,
-                productPrice: req.body.productPrice,
-                productImage: path != "" ? url + "/" + path : "",
-            };
+                ownerId : req.body.ownerId,
+                name: req.body.name,
+                email: req.body.email,
+                phoneNum: req.body.phoneNum,
+                address: req.body.address,
+                activity: req.body.activity,
+                description: req.body.description,
+                progress: req.body.progress,
+                isRepresent: req.body.isRepresent,
+                result: req.body.result,
+                sendTime: req.body.sendTime
+            }
 
             console.log(model);
 
@@ -123,7 +136,7 @@ pocaInfoController.update = (req, res, next) => {
 
 pocaInfoController.delete = (req, res, next) => {
     var model = {
-        productId: req.params.id,
+        pocaId: req.params.pocaId,
     };
 
     pocaInfoService.deletePoca(model, (error, results) => {
