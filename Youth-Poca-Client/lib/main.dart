@@ -26,7 +26,8 @@ class MyApp extends StatelessWidget {
         accentColor: Color(0xFF06A66C),
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: '/main',
+      // initialRoute: '/main',
+      initialRoute: '/write',
       routes: {
         '/main': (context) => MainPage(),
         '/write': (context) => WritePage(),
