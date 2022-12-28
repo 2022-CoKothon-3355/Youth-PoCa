@@ -2,9 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:youth_poca/pages/main_page.dart';
 import 'package:youth_poca/pages/write_page.dart';
+import 'package:permission_handler/permission_handler.dart';
+
+Future<bool> getPermission() async {
+  Map<Permission, PermissionStatus> permissions =
+      await [Permission.storage].request();
+  print('per1 : $permissions');
+  if (await Permission.storage.isGranted) {
+    return Future.value(true);
+  } else {
+    return Future.value(false);
+  }
+}
 
 void main() {
   runApp(MyApp());
+  getPermission();
 }
 
 class MyApp extends StatelessWidget {
