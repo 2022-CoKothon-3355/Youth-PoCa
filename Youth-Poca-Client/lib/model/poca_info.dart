@@ -2,6 +2,7 @@ class PocaInfo {
   // 명함에 들어가는 정보 클래스
 
   final String? pocaID; // Poca의 ID
+  final String ownerID; // 사용자 ID
   final String name; // 이름
   final String email; // 이메일
   String? phoneNum; // 전화번호
@@ -17,6 +18,7 @@ class PocaInfo {
 
   PocaInfo(
       {required this.pocaID,
+      required this.ownerID,
       required this.name,
       required this.email,
       this.phoneNum,

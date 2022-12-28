@@ -279,6 +279,7 @@ class _WritePageState extends State<WritePage> {
             // 아직 이미지랑 각 이미지 내용은 추가 안해뒀음
             PocaInfo pocaData = PocaInfo(
               pocaID: "",
+              ownerID: "1",
               name: _name.text,
               email: _email.text,
               phoneNum: _phonenum.text,
