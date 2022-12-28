@@ -26,7 +26,7 @@ router.post("/pocas", pocaInfoController.create);
 // Retrieve all Pocas
 // router.get("/pocas", pocaInfoController.findAll)
 router.get("/pocas", (req, res) => {
-    res.send(JSON.stringify({
+    res.json(JSON.stringify({
         "message": "Success",
         "data": [
             {
