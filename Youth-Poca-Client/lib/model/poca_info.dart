@@ -20,7 +20,7 @@ class PocaInfo {
       required this.email,
       this.phoneNum,
       this.address,
-      this.actiity,
+      this.activity,
       this.description,
       this.progrss,
       this.isRepresent,
