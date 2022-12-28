@@ -299,6 +299,7 @@ class _WritePageState extends State<WritePage> {
 
               // DB에 pocaData 데이터 넘기기
               pocaData.toJson();
+
               // dispose 하기
               //_dispose();
             },

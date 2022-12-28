@@ -1,3 +1,6 @@
+List<PocaInfo> pocasFromJson(dynamic str) =>
+    List<PocaInfo>.from((str).map((x) => PocaInfo.fromJson(x)));
+
 class PocaInfo {
   // 명함에 들어가는 정보 클래스
 
@@ -44,8 +47,8 @@ class PocaInfo {
     description = json["description"];
     progress = json["progress"];
     isRepresent = json["isRepresent"];
-    // images = json["images"];
-    // contents = json["contents"];
+    images = json["images"];
+    contents = json["contents"];
     result = json["result"];
     sendTime = json["sendTime"];
   }
