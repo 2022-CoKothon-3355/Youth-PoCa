@@ -15,9 +15,11 @@ class _CardSliderState extends State<CardSlider> {
     const email = "1234@naver.com";
     const phoneNum = "010-1234-5678";
     const address = "www.github.com/1234";
-    const activity = "프론트엔드";
+    const activity = "프론트엔드 / 코코톤";
     const progress = "진행상황";
     const description = "한줄요약";
+    final isRepre = false;
+
     List<Widget> pocaNum = [
       CommonFormCard(
           name: name,
@@ -26,15 +28,28 @@ class _CardSliderState extends State<CardSlider> {
           description: description,
           email: email,
           phoneNum: phoneNum,
-          progress: progress),
+          progress: progress,
+          isRepresent: isRepre),
       CommonFormCard(
-          name: name,
-          activity: activity,
-          address: address,
-          description: description,
-          email: email,
-          phoneNum: phoneNum,
-          progress: progress),
+        name: name,
+        activity: activity,
+        address: address,
+        description: description,
+        email: email,
+        phoneNum: phoneNum,
+        progress: progress,
+        isRepresent: !isRepre,
+      ),
+      CommonFormCard(
+        name: name,
+        activity: activity,
+        address: address,
+        description: description,
+        email: email,
+        phoneNum: phoneNum,
+        progress: progress,
+        isRepresent: false,
+      ),
     ];
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),

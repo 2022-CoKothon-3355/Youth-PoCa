@@ -8,6 +8,7 @@ class CommonFormCard extends StatefulWidget {
   final activity;
   final progress;
   final description;
+  final isRepresent;
 
   const CommonFormCard(
       {required this.name,
@@ -16,11 +17,12 @@ class CommonFormCard extends StatefulWidget {
       required this.address,
       required this.activity,
       required this.progress,
-      required this.description});
+      required this.description,
+      required this.isRepresent});
 
   @override
-  State<CommonFormCard> createState() => _CommonFormCardState(
-      name, email, phoneNum, address, activity, progress, description);
+  State<CommonFormCard> createState() => _CommonFormCardState(name, email,
+      phoneNum, address, activity, progress, description, isRepresent);
 }
 
 class _CommonFormCardState extends State<CommonFormCard> {
@@ -31,8 +33,10 @@ class _CommonFormCardState extends State<CommonFormCard> {
   final activity;
   final progress;
   final description;
+  final isRepre;
+
   _CommonFormCardState(this.name, this.email, this.phoneNum, this.address,
-      this.activity, this.progress, this.description);
+      this.activity, this.progress, this.description, this.isRepre);
 
   @override
   Widget build(BuildContext context) {
@@ -61,14 +65,14 @@ class _CommonFormCardState extends State<CommonFormCard> {
           children: [
             Row(
               children: [
-                Text(
-                  "$activity",
-                  style: TextStyle(color: Color(0xFFBFCAD6)),
+                Icon(
+                  Icons.star,
+                  color: isRepre ? Colors.yellowAccent : Colors.grey,
                 ),
                 Spacer(),
                 Text(
                   "$progress",
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.yellow, fontWeight: FontWeight.bold),
                 ),
               ],
@@ -85,7 +89,7 @@ class _CommonFormCardState extends State<CommonFormCard> {
                   fontSize: 18,
                   fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: Mheight * 0.02),
+            SizedBox(height: Mheight * 0.01),
             Row(
               children: [
                 Text("M. ${phoneNum}"),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:youth_poca/commons/common_form_card.dart';
 import 'package:youth_poca/components/card_slider.dart';
+import 'package:youth_poca/pages/write_page.dart';
 
 import '../components/portfolio.dart';
 
@@ -26,6 +27,17 @@ class MainPage extends StatelessWidget {
           // ),
           CardSlider(),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => WritePage(),
+            ),
+          );
+        },
+        backgroundColor: Color(0xAF06A66C),
+        child: Icon(Icons.add, size: 40),
       ),
     );
   }
