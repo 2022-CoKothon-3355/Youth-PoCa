@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:youth_poca/commons/common_form_portfolio.dart';
 
 class Portfolio extends StatefulWidget {
-  final List<String> images;
-  final List<String> content;
+  final List<dynamic> images;
+  final List<dynamic> content;
   final String result;
 
   const Portfolio(

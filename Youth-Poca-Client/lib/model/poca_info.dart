@@ -14,8 +14,8 @@ class PocaInfo {
   late String? description; // 한 줄 소개
   late var progress; // 진행 상황
   late bool? isRepresent; // 대표 명함인지(true/false)
-  late List<String>? images; // 포트폴리오의 이미지들
-  late List<String>? contents; // 포트폴리오의 내용들
+  late List<dynamic>? images; // 포트폴리오의 이미지들
+  late List<dynamic>? contents; // 포트폴리오의 내용들
   late String? result; // 포트폴리오의 결과
   late String? sendTime; // 명함 생성 시간
 
@@ -36,7 +36,7 @@ class PocaInfo {
       this.sendTime});
 
   PocaInfo.fromJson(Map<String, dynamic> json) {
-    pocaID = json["pocaID"];
+    pocaID = json["pocaId"];
     ownerID = json["ownerId"];
     name = json["name"];
     email = json["email"];
@@ -48,15 +48,14 @@ class PocaInfo {
     progress = json["progress"];
     isRepresent = json["isRepresent"];
     images = json["images"];
-    contents = json["contents"];
+    contents = json["content"];
     result = json["result"];
-    sendTime = json["sendTime"];
   }
 
   Map<String, dynamic> toJson() {
     final _pocaData = <String, dynamic>{};
 
-    _pocaData["pocaID"] = pocaID;
+    _pocaData["pocaId"] = pocaID;
     _pocaData["ownerID"] = ownerID;
     _pocaData["name"] = name;
     _pocaData["email"] = email;

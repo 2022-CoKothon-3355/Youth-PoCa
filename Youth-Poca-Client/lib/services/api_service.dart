@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:youth_poca/model/poca_info.dart';
 import 'package:youth_poca/pages/main_page.dart';
@@ -20,20 +19,28 @@ class APIService {
       Config.apiURL,
       Config.pocasAPI,
     );
+    //var future = Future.delayed(Duration(seconds: 3), () => {print('error')});
 
-    var response = await client.get(
-      url,
-      headers: requestHeaders,
-    );
-
-    if (response.statusCode == 200) {
-      var data = jsonDecode(response.body);
-
-      return pocasFromJson(data["data"]);
-
-      //return true;
-    } else {
-      return null;
+    var future = Future.delayed(Duration(seconds: 3), () => {print('error')});
+    try {
+      var rslt = await future;
+      var response = await client.get(
+        url,
+        headers: requestHeaders,
+      );
+      print(response.body);
+      if (response.statusCode == 200) {
+        var data = jsonDecode(response.body);
+        return pocasFromJson(data["data"]);
+        //return true;
+      } else {
+        return null;
+      }
+      print(rslt);
+    } catch (e) {
+      print(e);
+    } finally {
+      print('done');
     }
   }
 
@@ -108,17 +115,4 @@ class APIService {
       return false;
     }
   }
-
-  // Widget loadPocas() {
-  //   return FutureBuilder(
-  //       future: APIService.getPocas(),
-  //       builder: (BuildContext context, AsyncSnapshot<List<PocaInfo>?> model) {
-  //         if (model.hasData) {
-  //           // MainPage 수정이 필요한 부분
-  //           return MainPage(model.data);
-  //         }
-
-  //         return const Center(child: CircularProgressIndicator())
-  //       });
-  // }
 }
