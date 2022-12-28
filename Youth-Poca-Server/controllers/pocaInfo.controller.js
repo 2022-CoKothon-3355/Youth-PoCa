@@ -13,12 +13,6 @@ pocaInfoController.create = (req, res, next) => {
             const path =
                 req.file != undefined ? req.file.path.replace(/\\/g, "/") : "";
 
-            // var model = {
-            //     productName: req.body.productName,
-            //     productDescription: req.body.productDescription,
-            //     productPrice: req.body.productPrice,
-            //     productImage: path != "" ? url + "/" + path : "",
-            // };
 
             if(!req.body.ownerId){
                 return res.status(404).send({
