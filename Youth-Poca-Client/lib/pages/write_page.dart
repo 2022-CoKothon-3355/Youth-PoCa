@@ -1,4 +1,8 @@
+import 'dart:io';
+
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 // import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 import 'package:intl/intl.dart';
 // import 'package:snippet_coder_utils/FormHelper.dart';
@@ -18,7 +22,7 @@ class _WritePageState extends State<WritePage> {
   PocaInfo? pocaInfo;
   static final GlobalKey<FormState> globalFormKey = GlobalKey<FormState>();
   bool isApiCallProcess = false;
-  List<Object> _images = [];
+  // List<Object> _images = [];
   bool isEditMode = false;
   bool isImageSelected = false;
   late bool progressing;
@@ -32,6 +36,7 @@ class _WritePageState extends State<WritePage> {
   TextEditingController _result = TextEditingController();
   TextEditingController _progressStartText = TextEditingController();
   TextEditingController _progressEndText = TextEditingController();
+  TextEditingController _content = TextEditingController();
 
   String? _progress;
 
@@ -63,6 +68,39 @@ class _WritePageState extends State<WritePage> {
     _progressStartText.dispose();
     _progressEndText.dispose();
     super.dispose();
+  }
+
+  File? _image; // 사진 하나 가져오기
+  List<XFile> _images = []; // 사진 여러 개 가져오기
+  bool _visibility = false; // 가져온 사진 보이기
+  final picker = ImagePicker();
+
+  // 비동기 처리를 통해 카메라와 갤러리에서 이미지를 가져온다.
+  // 여러 이미지 가져오기 pickImage() 말고 pickMultiImage()
+  Future getImage(ImageSource imageSource) async {
+    // final image = await picker.pickImage(source: imageSource);
+    final List<XFile>? images = await picker.pickMultiImage();
+
+    if (images != null) {
+      setState(() {
+        _images = images; // 가져온 이미지를 _image에 저장
+        print(_images);
+        //_images = images.map<File>((xfile) => File(xfile.path)).toList();
+      });
+    }
+  }
+
+  // 가져온 사진 visible 상태 변경
+  void _hide() {
+    setState(() {
+      _visibility = false;
+    });
+  }
+
+  void _show() {
+    setState(() {
+      _visibility = true;
+    });
   }
 
   @override
@@ -315,9 +353,45 @@ class _WritePageState extends State<WritePage> {
                               // ),
 
                               // 이미지들
-
-                              // 이미지 별 내용들
-
+                              Text(
+                                "사진",
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w700),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              IconButton(
+                                  onPressed: () {
+                                    getImage(ImageSource.gallery);
+                                    _show();
+                                  },
+                                  icon: Icon(Icons.attach_file)),
+                              SizedBox(
+                                height: 30,
+                              ),
+                              // 내용
+                              Text(
+                                "활동 내용",
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w700),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              TextFormField(
+                                decoration: InputDecoration(
+                                  labelText: "활동 내용를 입력하세요",
+                                ),
+                                controller: _content,
+                              ),
+                              SizedBox(
+                                height: 30,
+                              ),
                               // 활동 결과 입력
                               Text(
                                 "활동 결과",
@@ -365,8 +439,8 @@ class _WritePageState extends State<WritePage> {
                     activity: _activity.text,
                     description: _description.text,
                     progress: pro,
-                    images: [],
-                    contents: [],
+                    images: _images,
+                    contents: [_content.text],
                     result: _result.text,
                     sendTime: DateFormat("yyyy-MM-dd hh:mm:ss")
                         .format(DateTime.now()),
@@ -390,7 +464,7 @@ class _WritePageState extends State<WritePage> {
                       });
                     });
                   }
-                  Navigator.pop(context);
+                  Navigator.pop(context, pocaInfo);
 
                   // dispose 하기
                 },

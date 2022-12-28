@@ -39,6 +39,7 @@ dependencies:
   carousel_slider:
   http:
   intl:
+  image_picker:
   # snippet_coder_utils:
   # flutter_progress_hud:
 
