@@ -46,7 +46,7 @@ class PocaInfo {
     activity = json["activity"];
     description = json["description"];
     progress = json["progress"];
-    isRepresent = json["isRepresent"];
+    // isRepresent = json["isRepresent"];
     images = json["images"];
     contents = json["content"];
     result = json["result"];
@@ -56,7 +56,7 @@ class PocaInfo {
     final _pocaData = <String, dynamic>{};
 
     _pocaData["pocaId"] = pocaID;
-    _pocaData["ownerID"] = ownerID;
+    _pocaData["ownerId"] = ownerID;
     _pocaData["name"] = name;
     _pocaData["email"] = email;
     _pocaData["phoneNum"] = phoneNum;
@@ -64,9 +64,9 @@ class PocaInfo {
     _pocaData["activity"] = activity;
     _pocaData["description"] = description;
     _pocaData["progress"] = progress;
-    _pocaData["isRepresent"] = isRepresent;
+    // _pocaData["isRepresent"] = isRepresent;
     _pocaData["images"] = images;
-    _pocaData["contents"] = contents;
+    _pocaData["content"] = contents;
     _pocaData["result"] = result;
     _pocaData["sendTime"] = sendTime;
 

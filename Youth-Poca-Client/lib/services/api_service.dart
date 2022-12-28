@@ -60,7 +60,8 @@ class APIService {
     var requestMethod = isEditMode ? "PUT" : "POST";
 
     var request = http.MultipartRequest(requestMethod, url);
-    request.fields["ownerID"] = model.ownerID;
+    request.fields["pocaId"] = model.pocaID;
+    request.fields["ownerId"] = model.ownerID;
     request.fields["name"] = model.name;
     request.fields["email"] = model.email;
     request.fields["phoneNum"] = model.phoneNum!;
@@ -68,13 +69,13 @@ class APIService {
     request.fields["activity"] = model.activity!;
     request.fields["description"] = model.description!;
     request.fields["progress"] = model.progress!;
-    request.fields["isRepresent"] = model.isRepresent!.toString();
+    // request.fields["isRepresent"] = model.isRepresent!.toString();
     request.fields["result"] = model.result!;
     request.fields["sendTime"] = model.sendTime!;
 
     // 포트폴리오 부분 완성되면 아래 주석 풀어서 하면 됨
     request.fields["images"] = model.images.toString();
-    request.fields["contents"] = model.contents.toString();
+    request.fields["content"] = model.contents.toString();
 
     // if (model.images != null && isFileSelected) {
     //   http.MultipartFile multipartFile = await http.MultipartFile.fromPath(
