@@ -75,17 +75,17 @@ class APIService {
     request.fields["sendTime"] = model.sendTime!;
 
     // 포트폴리오 부분 완성되면 아래 주석 풀어서 하면 됨
-    request.fields["images"] = model.images.toString();
+    // request.fields["images"] = model.images.toString();
     request.fields["content"] = model.contents.toString();
 
-    // if (model.images != null && isFileSelected) {
-    //   http.MultipartFile multipartFile = await http.MultipartFile.fromPath(
-    //     'images',
-    //     model.images!,
-    //   );
+    if (model.images != null && isFileSelected) {
+      http.MultipartFile multipartFile = await http.MultipartFile.fromPath(
+        'images',
+        model.images!.toString(),
+      );
 
-    //   request.files.add(multipartFile);
-    // }
+      request.files.add(multipartFile);
+    }
 
     var response = await request.send();
     await response.stream.transform(utf8.decoder).listen((event) {

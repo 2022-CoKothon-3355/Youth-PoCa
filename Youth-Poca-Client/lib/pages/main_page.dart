@@ -8,17 +8,17 @@ import '../model/poca_info.dart';
 import '../services/api_service.dart';
 
 class MainPage extends StatefulWidget {
-  var file;
-  MainPage({this.file});
+  // var file;
+  // MainPage({this.file});
 
   @override
-  State<MainPage> createState() => _MainPageState(file);
+  State<MainPage> createState() => _MainPageState();
 }
 
 class _MainPageState extends State<MainPage> {
-  var file;
+  // var file;
 
-  _MainPageState(this.file);
+  // _MainPageState(this.file);
 
   @override
   Widget build(BuildContext context) {

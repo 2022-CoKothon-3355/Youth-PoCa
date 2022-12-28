@@ -40,6 +40,7 @@ dependencies:
   http:
   intl:
   pull_to_refresh: ^2.0.0
+  image_picker:
   # snippet_coder_utils:
   # flutter_progress_hud:
 
