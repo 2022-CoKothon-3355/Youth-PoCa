@@ -40,8 +40,8 @@ router.get("/pocas", (req, res) => {
                 "description": "동아리 코스임",
                 "progress": true,
                 "isRepresent": true,
-                "images": [],
-                "content": [],
+                "images": ["fadsfaf"],
+                "content": ["sdfasfa"],
                 "result": "true",
             },
             {
@@ -55,8 +55,8 @@ router.get("/pocas", (req, res) => {
                 "description": "학생회활동",
                 "progress": true,
                 "isRepresent": true,
-                "images": [],
-                "content": [],
+                "images": ["dfsfas"],
+                "content": ["dsfsdfds"],
                 "result": "true",
             }
         ]
