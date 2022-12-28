@@ -1,8 +1,6 @@
 import express from "express"
-import cardRouter from "./routes/card.js"
 import Router from "./routes/app.routes.js"
 import {mongoose} from "mongoose";
-import {PocaInfo} from "./models/pocaInfo.model.js";
 import cors from 'cors'
 import errorHandler from "./middleware/errors.js";
 

@@ -28,7 +28,6 @@ pocaInfoController.create = (req, res, next) => {
 
             var model = {
                 ownerId : req.body.ownerId,
-                pocaId : req.body.pocaId,
                 name: req.body.name,
                 email: req.body.email,
                 phoneNum: req.body.phoneNum,
@@ -45,6 +44,8 @@ pocaInfoController.create = (req, res, next) => {
                 if (error) {
                     return next(error);
                 }
+                let pocaId = results._id;
+                results.pocaId = pocaId;
                 return res.status(200).send({
                     message: "Success",
                     data: results,

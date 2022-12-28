@@ -28,6 +28,8 @@ router.get("/pocas", pocaInfoController.findAll)
 // Retrieve a single poca with poca id
 router.get('/pocas/:id', pocaInfoController.findOne)
 
+router.post("/pocas", pocaInfoController.create)
+
 // Update a Poca with id
 router.put("/pocas/:id", pocaInfoController.update)
 
