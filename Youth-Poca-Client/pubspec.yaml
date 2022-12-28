@@ -39,6 +39,7 @@ dependencies:
   carousel_slider:
   http:
   intl:
+  pull_to_refresh: ^2.0.0
   # snippet_coder_utils:
   # flutter_progress_hud:
 

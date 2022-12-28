@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:youth_poca/commons/common_form_portfolio.dart';
 
 class Portfolio extends StatefulWidget {
-  final List<dynamic> images;
-  final List<dynamic> content;
-  final String result;
+  final List<dynamic>? images;
+  final List<dynamic>? content;
+  final String? result;
 
-  const Portfolio(
-      {required this.images, required this.content, required this.result});
+  const Portfolio({this.images, this.content, this.result});
 
   @override
   State<Portfolio> createState() => _PortfolioState(images, content, result);

@@ -8,7 +8,6 @@ class CommonFormCard extends StatefulWidget {
   final activity;
   final progress;
   final description;
-  final isRepresent;
 
   const CommonFormCard(
       {required this.name,
@@ -17,12 +16,11 @@ class CommonFormCard extends StatefulWidget {
       required this.address,
       required this.activity,
       required this.progress,
-      required this.description,
-      required this.isRepresent});
+      required this.description});
 
   @override
-  State<CommonFormCard> createState() => _CommonFormCardState(name, email,
-      phoneNum, address, activity, progress, description, isRepresent);
+  State<CommonFormCard> createState() => _CommonFormCardState(
+      name, email, phoneNum, address, activity, progress, description);
 }
 
 class _CommonFormCardState extends State<CommonFormCard> {
@@ -33,10 +31,9 @@ class _CommonFormCardState extends State<CommonFormCard> {
   final activity;
   final progress;
   final description;
-  final isRepre;
 
   _CommonFormCardState(this.name, this.email, this.phoneNum, this.address,
-      this.activity, this.progress, this.description, this.isRepre);
+      this.activity, this.progress, this.description);
 
   @override
   Widget build(BuildContext context) {
@@ -67,11 +64,11 @@ class _CommonFormCardState extends State<CommonFormCard> {
               children: [
                 Icon(
                   Icons.star,
-                  color: isRepre ? Colors.yellowAccent : Colors.grey,
+                  color: Colors.grey,
                 ),
                 Spacer(),
                 Text(
-                  "$progress",
+                  (progress ? "진행중" : "진행완료"),
                   style: const TextStyle(
                       color: Colors.yellow, fontWeight: FontWeight.bold),
                 ),

@@ -88,9 +88,11 @@ class APIService {
     // }
 
     var response = await request.send();
-    print(response.reasonPhrase);
+    await response.stream.transform(utf8.decoder).listen((event) {
+      print(event);
+    });
+    print(response.statusCode);
     if (response.statusCode == 200) {
-      print("hi");
       return true;
     } else {
       return false;

@@ -4,7 +4,7 @@ class CommonFormPortfolio extends StatefulWidget {
   final image;
   final content;
 
-  const CommonFormPortfolio({required this.image, required this.content});
+  const CommonFormPortfolio({this.image, this.content});
 
   @override
   State<CommonFormPortfolio> createState() =>
@@ -38,7 +38,7 @@ class _CommonFormPortfolioState extends State<CommonFormPortfolio> {
             height: Mheight * 0.2,
             child: Center(
               child: Text(
-                "활동 내용",
+                content[0],
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),
