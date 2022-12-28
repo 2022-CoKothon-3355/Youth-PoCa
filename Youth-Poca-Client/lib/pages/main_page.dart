@@ -19,7 +19,8 @@ class MainPage extends StatelessWidget {
     const description = "한줄요약";
 
     return Scaffold(
-      body: Column(
+      body: ListView(
+        physics: const NeverScrollableScrollPhysics(),
         children: [
           Portfolio(images: [], content: [], result: ""),
           // Container(

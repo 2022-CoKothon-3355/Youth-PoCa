@@ -34,272 +34,276 @@ class _WritePageState extends State<WritePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // appBar: AppBar(backgroundColor: Colors.transparent, elevation: 0),
-      body: Container(
-          padding: const EdgeInsets.only(left: 20, right: 20),
-          child: SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Center(
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                    SizedBox(
-                      height: 100,
-                    ),
-                    // 나만의 명함 만들기
-                    Text("Create \nMy \nYouthPoca !",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontSize: 35,
-                          fontWeight: FontWeight.w700,
-                          color: Color(0xFF06A66C),
-                        )),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          height: 100,
-                        ),
-                        // 이름 입력
-                        Text(
-                          "이름",
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        // appBar: AppBar(backgroundColor: Colors.transparent, elevation: 0),
+        body: Container(
+            padding: const EdgeInsets.only(left: 20, right: 20),
+            child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Center(
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                      SizedBox(
+                        height: 100,
+                      ),
+                      // 나만의 명함 만들기
+                      Text("Create \nMy \nYouthPoca !",
+                          textAlign: TextAlign.left,
                           style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w700),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        TextFormField(
-                          decoration: InputDecoration(
-                            labelText: "이름을 입력하세요",
+                            fontSize: 35,
+                            fontWeight: FontWeight.w700,
+                            color: Color(0xFF06A66C),
+                          )),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            height: 100,
                           ),
-                          controller: _name,
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return "올바른 이름을 입력하세요";
-                            } else {
-                              return null;
-                            }
-                          },
-                        ),
-                        SizedBox(
-                          height: 30,
-                        ),
-                        // 이메일 입력
-                        Text(
-                          "이메일",
-                          style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w700),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        TextFormField(
-                          decoration: InputDecoration(
-                            labelText: "이메일을 입력하세요",
+                          // 이름 입력
+                          Text(
+                            "이름",
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w700),
                           ),
-                          controller: _email,
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return "올바른 이메일을 입력하세요";
-                            } else {
-                              return null;
-                            }
-                          },
-                        ),
-                        SizedBox(
-                          height: 30,
-                        ),
-                        // 전화번호 입력
-                        Text(
-                          "전화번호",
-                          style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w700),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        TextFormField(
-                          decoration: InputDecoration(
-                            labelText: "전화번호를 입력하세요",
+                          SizedBox(
+                            height: 10,
                           ),
-                          controller: _phonenum,
-                        ),
-                        SizedBox(
-                          height: 30,
-                        ),
-                        // 주소 입력
-                        Text(
-                          "주소",
-                          style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w700),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        TextFormField(
-                          decoration: InputDecoration(
-                            labelText: "주소를 입력하세요",
+                          TextFormField(
+                            decoration: InputDecoration(
+                              labelText: "이름을 입력하세요",
+                            ),
+                            controller: _name,
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "올바른 이름을 입력하세요";
+                              } else {
+                                return null;
+                              }
+                            },
                           ),
-                          controller: _address,
-                        ),
-                        SizedBox(
-                          height: 30,
-                        ),
-                        // 활동명과 역할 입력
-                        Text(
-                          "활동명과 역할",
-                          style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w700),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        TextFormField(
-                          decoration: InputDecoration(
-                            labelText: "활동명과 역할을 입력하세요",
+                          SizedBox(
+                            height: 30,
                           ),
-                          controller: _activity,
-                        ),
-                        SizedBox(
-                          height: 30,
-                        ),
-                        // 한 줄 소개 입력
-                        Text(
-                          "한 줄 소개",
-                          style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w700),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        TextFormField(
-                          decoration: InputDecoration(
-                            labelText: "한 줄 소개를 입력하세요",
+                          // 이메일 입력
+                          Text(
+                            "이메일",
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w700),
                           ),
-                          controller: _description,
-                        ),
-                        SizedBox(
-                          height: 30,
-                        ),
-                        // 진행 상황
-                        Text(
-                          "진행 상황",
-                          style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w700),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Column(
-                          children: [
-                            RadioListTile(
-                                title: Text('진행 중'),
-                                value: "진행 중",
-                                groupValue: _progress,
-                                onChanged: (value) {
-                                  setState(() {
-                                    if (value != null)
-                                      _progress = value as String?;
-                                  });
-                                }),
-                            RadioListTile(
-                                title: Text('진행 완료'),
-                                value: "진행 완료",
-                                groupValue: _progress,
-                                onChanged: (value) {
-                                  setState(() {
-                                    if (value != null)
-                                      _progress = value as String?;
-                                  });
-                                })
-                          ],
-                        ),
-                        SizedBox(
-                          height: 30,
-                        ),
-                        // 대표 명함 여부 -> 처음 생성할 때는 다 false로 서버에 전달
-                        // Text(
-                        //   "대표 여부",
-                        //   style: TextStyle(
-                        //       fontSize: 15,
-                        //       color: Colors.black,
-                        //       fontWeight: FontWeight.w700),
-                        // ),
-                        // SizedBox(
-                        //   height: 10,
-                        // ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          TextFormField(
+                            decoration: InputDecoration(
+                              labelText: "이메일을 입력하세요",
+                            ),
+                            controller: _email,
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "올바른 이메일을 입력하세요";
+                              } else {
+                                return null;
+                              }
+                            },
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          // 전화번호 입력
+                          Text(
+                            "전화번호",
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w700),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          TextFormField(
+                            decoration: InputDecoration(
+                              labelText: "전화번호를 입력하세요",
+                            ),
+                            controller: _phonenum,
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          // 주소 입력
+                          Text(
+                            "주소",
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w700),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          TextFormField(
+                            decoration: InputDecoration(
+                              labelText: "주소를 입력하세요",
+                            ),
+                            controller: _address,
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          // 활동명과 역할 입력
+                          Text(
+                            "활동명과 역할",
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w700),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          TextFormField(
+                            decoration: InputDecoration(
+                              labelText: "활동명과 역할을 입력하세요",
+                            ),
+                            controller: _activity,
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          // 한 줄 소개 입력
+                          Text(
+                            "한 줄 소개",
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w700),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          TextFormField(
+                            decoration: InputDecoration(
+                              labelText: "한 줄 소개를 입력하세요",
+                            ),
+                            controller: _description,
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          // 진행 상황
+                          Text(
+                            "진행 상황",
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w700),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Column(
+                            children: [
+                              RadioListTile(
+                                  title: Text('진행 중'),
+                                  value: "진행 중",
+                                  groupValue: _progress,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      if (value != null)
+                                        _progress = value as String?;
+                                    });
+                                  }),
+                              RadioListTile(
+                                  title: Text('진행 완료'),
+                                  value: "진행 완료",
+                                  groupValue: _progress,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      if (value != null)
+                                        _progress = value as String?;
+                                    });
+                                  })
+                            ],
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          // 대표 명함 여부 -> 처음 생성할 때는 다 false로 서버에 전달
+                          // Text(
+                          //   "대표 여부",
+                          //   style: TextStyle(
+                          //       fontSize: 15,
+                          //       color: Colors.black,
+                          //       fontWeight: FontWeight.w700),
+                          // ),
+                          // SizedBox(
+                          //   height: 10,
+                          // ),
 
-                        // 이미지들
+                          // 이미지들
 
-                        // 이미지 별 내용들
+                          // 이미지 별 내용들
 
-                        // 활동 결과 입력
-                        Text(
-                          "활동 결과",
-                          style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w700),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        TextFormField(
-                          decoration: InputDecoration(
-                            labelText: "활동 결과를 입력하세요",
+                          // 활동 결과 입력
+                          Text(
+                            "활동 결과",
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w700),
                           ),
-                          controller: _result,
-                        ),
-                        SizedBox(
-                          height: 30,
-                        ),
-                      ],
-                    )
-                  ])))),
-      floatingActionButton: FloatingActionButton(
-          onPressed: () async {
-            Navigator.pop(context);
-            // 아직 이미지랑 각 이미지 내용은 추가 안해뒀음
-            PocaInfo pocaData = PocaInfo(
-              pocaID: "",
-              ownerID: "1",
-              name: _name.text,
-              email: _email.text,
-              phoneNum: _phonenum.text,
-              address: _address.text,
-              activity: _activity.text,
-              description: _description.text,
-              progress: _progress,
-              images: [],
-              content: [],
-              result: _result.text,
-              sendTime:
-                  DateFormat("yyyy-MM-dd hh:mm:ss").format(DateTime.now()),
-            );
+                          SizedBox(
+                            height: 10,
+                          ),
+                          TextFormField(
+                            decoration: InputDecoration(
+                              labelText: "활동 결과를 입력하세요",
+                            ),
+                            controller: _result,
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                        ],
+                      )
+                    ])))),
+        floatingActionButton: FloatingActionButton(
+            onPressed: () async {
+              FocusScope.of(context).unfocus();
+              Navigator.pop(context);
+              // 아직 이미지랑 각 이미지 내용은 추가 안해뒀음
+              PocaInfo pocaData = PocaInfo(
+                pocaID: "",
+                ownerID: "1",
+                name: _name.text,
+                email: _email.text,
+                phoneNum: _phonenum.text,
+                address: _address.text,
+                activity: _activity.text,
+                description: _description.text,
+                progress: _progress,
+                images: [],
+                content: [],
+                result: _result.text,
+                sendTime:
+                    DateFormat("yyyy-MM-dd hh:mm:ss").format(DateTime.now()),
+              );
 
-            // DB에 pocaData 데이터 넘기기
+              // DB에 pocaData 데이터 넘기기
 
-            // dispose 하기
-            _dispose();
-          },
-          child: const Icon(Icons.create_rounded)),
+              // dispose 하기
+              //_dispose();
+            },
+            child: const Icon(Icons.create_rounded)),
+      ),
     );
   }
 }
