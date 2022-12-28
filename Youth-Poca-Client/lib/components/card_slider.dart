@@ -29,7 +29,7 @@ class _CardSliderState extends State<CardSlider> {
     final activity = model?.activity;
     final progress = model?.progress;
     final description = model?.description;
-    final bool? isRepre = model?.isRepresent;
+    //final bool? isRepre = model?.isRepresent;
     final images = model?.images;
     final content = model?.contents;
     final result = model?.result;
@@ -44,9 +44,10 @@ class _CardSliderState extends State<CardSlider> {
             email: email,
             phoneNum: phoneNum,
             progress: progress,
-            isRepresent: isRepre),
+            isRepresent: false),
       );
     }
+    print(pocaNum);
     // = [
     //   CommonFormCard(
     //     name: name,
