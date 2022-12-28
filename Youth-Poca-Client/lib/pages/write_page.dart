@@ -337,13 +337,14 @@ class _WritePageState extends State<WritePage> {
                 description: _description.text,
                 progress: pro,
                 images: [],
-                content: [],
+                contents: [],
                 result: _result.text,
                 sendTime:
                     DateFormat("yyyy-MM-dd hh:mm:ss").format(DateTime.now()),
               );
               print(pocaData.progress);
               // DB에 pocaData 데이터 넘기기
+              pocaData.toJson();
 
               // dispose 하기
             },
