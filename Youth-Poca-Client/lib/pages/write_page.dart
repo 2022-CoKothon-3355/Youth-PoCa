@@ -248,19 +248,20 @@ class _WritePageState extends State<WritePage> {
                                 children: [
                                   RadioListTile(
                                       title: Text('진행 중'),
-                                      value: true,
+                                      value: "true",
                                       groupValue: _progress,
                                       onChanged: (value) {
                                         setState(() {
                                           if (value != null) {
-                                            _progress = value as String?;
+                                            _progress =
+                                                value.toString() as String?;
                                             progressing = true;
                                           }
                                         });
                                       }),
                                   RadioListTile(
                                       title: Text('진행 완료'),
-                                      value: false,
+                                      value: "false",
                                       groupValue: _progress,
                                       onChanged: (value) {
                                         setState(() {

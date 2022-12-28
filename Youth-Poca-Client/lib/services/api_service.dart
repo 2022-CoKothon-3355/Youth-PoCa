@@ -61,7 +61,7 @@ class APIService {
     request.fields["activity"] = model.activity!;
     request.fields["description"] = model.description!;
     request.fields["progress"] = model.progress!;
-    request.fields["isRepresent"] = model.isRepresent!.toString();
+    // request.fields["isRepresent"] = model.isRepresent!.toString();
     request.fields["result"] = model.result!;
     request.fields["sendTime"] = model.sendTime!;
 
