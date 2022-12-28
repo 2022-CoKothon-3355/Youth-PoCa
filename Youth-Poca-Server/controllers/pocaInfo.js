@@ -3,19 +3,17 @@ import {PocaInfo} from "../models/pocaInfo.model.js"
 let pocaInfoController = {}
 
 // 포트폴리오 카드 목록 보여주기
-pocaInfoController.list = (req, res) => {
+pocaInfoController.list = async (req, res) => {
 
-    PocaInfo.find({}).exec((err, pocaInfo) => {
+    const pocainfoList = await PocaInfo.find({_id:req.params.ownerId})
 
-
-    })
+    return pocainfoList
 }
 
 
 
 
 // 포트폴리오 카드 하나 찾기
-
 pocaInfoController.show = (req, res) => {
 
     PocaInfo.findOne({_id: req.params.id}).exec(function(err, employee) {
@@ -29,8 +27,20 @@ pocaInfoController.show = (req, res) => {
 
 // 포트폴리오 카드 생성
 
-pocaInfoController.create = function(req, res) {
+pocaInfoController.create = async (req, res) => {
 
+    const data = {ownerId, pocaId, name, email, phoneNum, address, activity,
+        description,
+        progress,
+        isRepresent,
+        images,
+        content} = req.body
+
+
+    const pocaInfo = new PocaInfo(data)
+
+    let result = await pocaInfo.save()
+    return result
 };
 
 

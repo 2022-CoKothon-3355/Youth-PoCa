@@ -4,19 +4,16 @@ import pocaInfoController from "../controllers/pocaInfo.js";
 let router = express.Router()
 
 router.get('/:userId', (req, res) => {
-    pocaInfoController.get()
+    // let result = pocaInfoController.get(req, res)
     res.send(JSON.stringify({"helloworld": "hahaha"}))
 })
 
-router.post('/:userId', (req, res) => {
-    pocaInfoController.create()
-    pocaInfoController.save()
+router.post('/:userId', async (req, res) => {
+    req.body.ownerId = req.params.userId
     res.send(JSON.stringify({"helloworld": "hahaha"}))
 })
 
 router.put('/:userId/:cardId', (req, res)=>{
-    pocaInfoController.edit()
-    pocaInfoController.save()
     res.send(JSON.stringify({"helloworld": "hahaha"}))
 })
 

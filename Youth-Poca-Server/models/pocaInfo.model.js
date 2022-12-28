@@ -1,8 +1,8 @@
 import mongoose from "mongoose"
 
-let PocaInfoSchema = new mongoose.Schema(
+const PocaInfoSchema = new mongoose.Schema(
     {
-        ownwerId: String,
+        ownerId: String,
         pocaId: String,
         name: String,
         email: String,
