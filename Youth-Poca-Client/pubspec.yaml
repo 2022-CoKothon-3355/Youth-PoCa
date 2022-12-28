@@ -39,6 +39,8 @@ dependencies:
   carousel_slider:
   http:
   intl:
+  # snippet_coder_utils:
+  # flutter_progress_hud:
 
 dev_dependencies:
   flutter_test:

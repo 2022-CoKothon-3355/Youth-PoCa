@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:youth_poca/model/poca_info.dart';
 import 'package:youth_poca/pages/main_page.dart';
@@ -108,14 +109,16 @@ class APIService {
     }
   }
 
-  Widget loadPocas() {
-    return FutureBuilder(
-        future: APIService.getPocas(),
-        builder: (BuildContext context, AsyncSnapshot<List<PocaInfo>?> model) {
-          if (model.hasData) {
-            // MainPage 수정이 필요한 부분
-            return MainPage(model.data);
-          }
-        });
-  }
+  // Widget loadPocas() {
+  //   return FutureBuilder(
+  //       future: APIService.getPocas(),
+  //       builder: (BuildContext context, AsyncSnapshot<List<PocaInfo>?> model) {
+  //         if (model.hasData) {
+  //           // MainPage 수정이 필요한 부분
+  //           return MainPage(model.data);
+  //         }
+
+  //         return const Center(child: CircularProgressIndicator())
+  //       });
+  // }
 }
