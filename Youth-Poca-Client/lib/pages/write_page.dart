@@ -11,18 +11,20 @@ class WritePage extends StatefulWidget {
 }
 
 class _WritePageState extends State<WritePage> {
-  final TextEditingController _name = TextEditingController();
-  final TextEditingController _email = TextEditingController();
-  final TextEditingController _phonenum = TextEditingController();
-  final TextEditingController _address = TextEditingController();
-  final TextEditingController _activity = TextEditingController();
-  final TextEditingController _description = TextEditingController();
-  final TextEditingController _result = TextEditingController();
+  TextEditingController _name = TextEditingController();
+  TextEditingController _email = TextEditingController();
+  TextEditingController _phonenum = TextEditingController();
+  TextEditingController _address = TextEditingController();
+  TextEditingController _activity = TextEditingController();
+  TextEditingController _description = TextEditingController();
+  TextEditingController _result = TextEditingController();
+  TextEditingController _progressStartText = TextEditingController();
+  TextEditingController _progressEndText = TextEditingController();
 
   String? _progress;
 
   @override
-  void _dispose() {
+  void dispose() {
     _name.dispose();
     _email.dispose();
     _phonenum.dispose();
@@ -30,8 +32,12 @@ class _WritePageState extends State<WritePage> {
     _activity.dispose();
     _description.dispose();
     _result.dispose();
+    _progressStartText.dispose();
+    _progressEndText.dispose();
+    super.dispose();
   }
 
+  bool progressing = true;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -217,8 +223,10 @@ class _WritePageState extends State<WritePage> {
                                   groupValue: _progress,
                                   onChanged: (value) {
                                     setState(() {
-                                      if (value != null)
+                                      if (value != null) {
                                         _progress = value as String?;
+                                        progressing = true;
+                                      }
                                     });
                                   }),
                               RadioListTile(
@@ -227,10 +235,33 @@ class _WritePageState extends State<WritePage> {
                                   groupValue: _progress,
                                   onChanged: (value) {
                                     setState(() {
-                                      if (value != null)
+                                      if (value != null) {
                                         _progress = value as String?;
+                                        progressing = false;
+                                      }
                                     });
-                                  })
+                                  }),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 40),
+                                child: Column(
+                                  children: [
+                                    TextFormField(
+                                      decoration: InputDecoration(
+                                        labelText: "시작",
+                                      ),
+                                      controller: _progressStartText,
+                                    ),
+                                    SizedBox(width: 10),
+                                    TextFormField(
+                                      decoration: InputDecoration(
+                                        labelText: "완료",
+                                      ),
+                                      controller: _progressEndText,
+                                    ),
+                                  ],
+                                ),
+                              )
                             ],
                           ),
                           SizedBox(
@@ -277,6 +308,16 @@ class _WritePageState extends State<WritePage> {
                     ])))),
         floatingActionButton: FloatingActionButton(
             onPressed: () async {
+              List<String> _progressTime = [
+                _progressStartText.text,
+                _progressEndText.text
+              ];
+              String? pro;
+              if (progressing == true) {
+                pro = _progress;
+              } else if (progressing == false) {
+                pro = _progressTime.toString();
+              }
               FocusScope.of(context).unfocus();
               Navigator.pop(context);
               // 아직 이미지랑 각 이미지 내용은 추가 안해뒀음
@@ -289,18 +330,17 @@ class _WritePageState extends State<WritePage> {
                 address: _address.text,
                 activity: _activity.text,
                 description: _description.text,
-                progress: _progress,
+                progress: pro,
                 images: [],
                 content: [],
                 result: _result.text,
                 sendTime:
                     DateFormat("yyyy-MM-dd hh:mm:ss").format(DateTime.now()),
               );
-
+              print(pocaData.progress);
               // DB에 pocaData 데이터 넘기기
 
               // dispose 하기
-              //_dispose();
             },
             child: const Icon(Icons.create_rounded)),
       ),
