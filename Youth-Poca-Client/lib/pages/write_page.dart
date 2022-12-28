@@ -356,7 +356,7 @@ class _WritePageState extends State<WritePage> {
                   FocusScope.of(context).unfocus();
                   // 아직 이미지랑 각 이미지 내용은 추가 안해뒀음
                   pocaInfo = PocaInfo(
-                    pocaID: "",
+                    pocaID: " ",
                     ownerID: "1",
                     name: _name.text,
                     email: _email.text,
