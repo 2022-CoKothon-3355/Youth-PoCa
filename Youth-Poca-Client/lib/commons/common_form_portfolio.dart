@@ -21,12 +21,12 @@ class _CommonFormPortfolioState extends State<CommonFormPortfolio> {
     final Mwidth = MediaQuery.of(context).size.width;
     final Mheight = MediaQuery.of(context).size.height;
     return Padding(
-      padding: const EdgeInsets.only(left: 10, right: 10, top: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Column(
         children: [
           Container(
             width: Mwidth,
-            height: Mwidth * 0.94,
+            height: Mwidth * 0.995,
             color: Colors.black,
           ),
           Container(
