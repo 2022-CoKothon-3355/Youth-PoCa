@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../model/poca_info.dart';
 
@@ -18,6 +19,8 @@ class _WritePageState extends State<WritePage> {
   final TextEditingController _description = TextEditingController();
   final TextEditingController _result = TextEditingController();
 
+  String? _progress;
+
   @override
   void _dispose() {
     _name.dispose();
@@ -32,6 +35,7 @@ class _WritePageState extends State<WritePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // appBar: AppBar(backgroundColor: Colors.transparent, elevation: 0),
       body: Container(
           padding: const EdgeInsets.only(left: 20, right: 20),
           child: SingleChildScrollView(
@@ -189,17 +193,63 @@ class _WritePageState extends State<WritePage> {
                           ),
                           controller: _description,
                         ),
+                        SizedBox(
+                          height: 30,
+                        ),
                         // 진행 상황
-
-                        // 대표 명함 여부
+                        Text(
+                          "진행 상황",
+                          style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w700),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Column(
+                          children: [
+                            RadioListTile(
+                                title: Text('진행 중'),
+                                value: "진행 중",
+                                groupValue: _progress,
+                                onChanged: (value) {
+                                  setState(() {
+                                    if (value != null)
+                                      _progress = value as String?;
+                                  });
+                                }),
+                            RadioListTile(
+                                title: Text('진행 완료'),
+                                value: "진행 완료",
+                                groupValue: _progress,
+                                onChanged: (value) {
+                                  setState(() {
+                                    if (value != null)
+                                      _progress = value as String?;
+                                  });
+                                })
+                          ],
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        // 대표 명함 여부 -> 처음 생성할 때는 다 false로 서버에 전달
+                        // Text(
+                        //   "대표 여부",
+                        //   style: TextStyle(
+                        //       fontSize: 15,
+                        //       color: Colors.black,
+                        //       fontWeight: FontWeight.w700),
+                        // ),
+                        // SizedBox(
+                        //   height: 10,
+                        // ),
 
                         // 이미지들
 
                         // 이미지 별 내용들
 
-                        SizedBox(
-                          height: 30,
-                        ),
                         // 활동 결과 입력
                         Text(
                           "활동 결과",
@@ -217,6 +267,9 @@ class _WritePageState extends State<WritePage> {
                           ),
                           controller: _result,
                         ),
+                        SizedBox(
+                          height: 30,
+                        ),
                       ],
                     )
                   ])))),
@@ -225,17 +278,24 @@ class _WritePageState extends State<WritePage> {
             Navigator.pop(context);
             // 아직 이미지랑 각 이미지 내용은 추가 안해뒀음
             PocaInfo pocaData = PocaInfo(
-                pocaID: "",
-                name: _name.text,
-                email: _email.text,
-                phoneNum: _phonenum.text,
-                address: _address.text,
-                activity: _activity.text,
-                description: _description.text,
-                result: _result.text);
+              pocaID: "",
+              name: _name.text,
+              email: _email.text,
+              phoneNum: _phonenum.text,
+              address: _address.text,
+              activity: _activity.text,
+              description: _description.text,
+              progress: _progress,
+              images: [],
+              content: [],
+              result: _result.text,
+              sendTime:
+                  DateFormat("yyyy-MM-dd hh:mm:ss").format(DateTime.now()),
+            );
 
             // DB에 pocaData 데이터 넘기기
 
+            // dispose 하기
             _dispose();
           },
           child: const Icon(Icons.create_rounded)),
