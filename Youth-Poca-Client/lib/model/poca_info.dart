@@ -36,7 +36,7 @@ class PocaInfo {
       this.sendTime});
 
   PocaInfo.fromJson(Map<String, dynamic> json) {
-    pocaID = json["pocaID"];
+    pocaID = json["pocaId"];
     ownerID = json["ownerId"];
     name = json["name"];
     email = json["email"];
@@ -48,7 +48,7 @@ class PocaInfo {
     progress = json["progress"];
     isRepresent = json["isRepresent"];
     images = json["images"];
-    contents = json["contents"];
+    contents = json["content"];
     result = json["result"];
     sendTime = json["sendTime"];
   }
@@ -56,8 +56,8 @@ class PocaInfo {
   Map<String, dynamic> toJson() {
     final _pocaData = <String, dynamic>{};
 
-    _pocaData["pocaID"] = pocaID;
-    _pocaData["ownerID"] = ownerID;
+    _pocaData["pocaId"] = pocaID;
+    _pocaData["ownerId"] = ownerID;
     _pocaData["name"] = name;
     _pocaData["email"] = email;
     _pocaData["phoneNum"] = phoneNum;
@@ -67,7 +67,7 @@ class PocaInfo {
     _pocaData["progress"] = progress;
     _pocaData["isRepresent"] = isRepresent;
     _pocaData["images"] = images;
-    _pocaData["contents"] = contents;
+    _pocaData["content"] = contents;
     _pocaData["result"] = result;
     _pocaData["sendTime"] = sendTime;
 
