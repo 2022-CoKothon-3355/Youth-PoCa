@@ -24,7 +24,7 @@ pocaInfoService.createPoca = async (params, callback) => {
 pocaInfoService.getPocas = async (params, callback) => {
     const ownerId = params.ownerId;
     pocaInfo
-        .find({ownerId})
+        .find({ownerId: ownerId})
         .then((response) => {
             return callback(null, response)
         }).catch((error) => {
