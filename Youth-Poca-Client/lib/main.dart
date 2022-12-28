@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       // initialRoute: '/main',
-      initialRoute: '/write',
+      initialRoute: '/main',
       routes: {
         '/main': (context) => MainPage(),
         '/write': (context) => WritePage(),
