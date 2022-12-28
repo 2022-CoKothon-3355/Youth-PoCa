@@ -22,10 +22,19 @@ class _PortfolioState extends State<Portfolio> {
   _PortfolioState(this.images, this.content, this.result);
   @override
   Widget build(BuildContext context) {
+    print(images[0]);
+    late Color mColor;
+    if (images[0] == "1") {
+      mColor = Colors.grey;
+    } else if (images[0] == "2") {
+      mColor = Colors.black;
+    } else if (images[0] == "3") {
+      mColor = Colors.red;
+    }
     final Mheight = MediaQuery.of(context).size.height;
     List<Widget> portNum = [
-      CommonFormPortfolio(image: images, content: content),
-      CommonFormPortfolio(image: images, content: content),
+      CommonFormPortfolio(image: images, content: content, color: mColor),
+      CommonFormPortfolio(image: images, content: content, color: mColor),
     ];
     return CarouselSlider(
       items: portNum,

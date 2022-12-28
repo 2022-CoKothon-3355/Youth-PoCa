@@ -19,16 +19,7 @@ class MainPage extends StatelessWidget {
     const description = "한줄요약";
 
     return Scaffold(
-      body: ListView(
-        physics: const NeverScrollableScrollPhysics(),
-        children: [
-          Portfolio(images: [], content: [], result: ""),
-          // Container(
-          //   height: MediaQuery.of(context).size.height * 0.7,
-          // ),
-          CardSlider(),
-        ],
-      ),
+      body: CardSlider(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context).push(

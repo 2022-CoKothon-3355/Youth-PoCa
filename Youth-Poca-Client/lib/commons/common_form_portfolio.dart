@@ -3,18 +3,21 @@ import 'package:flutter/material.dart';
 class CommonFormPortfolio extends StatefulWidget {
   final image;
   final content;
+  final color;
 
-  const CommonFormPortfolio({required this.image, required this.content});
+  const CommonFormPortfolio(
+      {required this.image, required this.content, required this.color});
 
   @override
   State<CommonFormPortfolio> createState() =>
-      _CommonFormPortfolioState(image, content);
+      _CommonFormPortfolioState(image, content, color);
 }
 
 class _CommonFormPortfolioState extends State<CommonFormPortfolio> {
   final image;
   final content;
-  _CommonFormPortfolioState(this.image, this.content);
+  final color;
+  _CommonFormPortfolioState(this.image, this.content, this.color);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +30,7 @@ class _CommonFormPortfolioState extends State<CommonFormPortfolio> {
           Container(
             width: Mwidth,
             height: Mwidth * 0.995,
-            color: Colors.black,
+            color: color,
           ),
           Container(
             decoration: BoxDecoration(
