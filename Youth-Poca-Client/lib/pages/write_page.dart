@@ -244,22 +244,27 @@ class _WritePageState extends State<WritePage> {
                               Padding(
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 40),
-                                child: Column(
-                                  children: [
-                                    TextFormField(
-                                      decoration: InputDecoration(
-                                        labelText: "시작",
+                                child: Visibility(
+                                  visible: progressing ? false : true,
+                                  child: Column(
+                                    children: [
+                                      TextFormField(
+                                        decoration: InputDecoration(
+                                          labelText:
+                                              "시작 날짜를 적어주세요 (ex. 220101)",
+                                        ),
+                                        controller: _progressStartText,
                                       ),
-                                      controller: _progressStartText,
-                                    ),
-                                    SizedBox(width: 10),
-                                    TextFormField(
-                                      decoration: InputDecoration(
-                                        labelText: "완료",
+                                      SizedBox(width: 10),
+                                      TextFormField(
+                                        decoration: InputDecoration(
+                                          labelText:
+                                              "완료 날짜를 적어주세요 (ex. 221231)",
+                                        ),
+                                        controller: _progressEndText,
                                       ),
-                                      controller: _progressEndText,
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               )
                             ],
