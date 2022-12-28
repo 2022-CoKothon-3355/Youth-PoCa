@@ -15,7 +15,6 @@ class _CommonFormPortfolioState extends State<CommonFormPortfolio> {
   final image;
   final content;
   _CommonFormPortfolioState(this.image, this.content);
-
   @override
   Widget build(BuildContext context) {
     final Mwidth = MediaQuery.of(context).size.width;
@@ -38,7 +37,7 @@ class _CommonFormPortfolioState extends State<CommonFormPortfolio> {
             height: Mheight * 0.2,
             child: Center(
               child: Text(
-                content[0],
+                content.isEmpty ? "활동 내용" : content[0],
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),
