@@ -20,24 +20,33 @@ class _CommonFormPortfolioState extends State<CommonFormPortfolio> {
     final Mwidth = MediaQuery.of(context).size.width;
     final Mheight = MediaQuery.of(context).size.height;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 25),
       child: Column(
         children: [
           Container(
             width: Mwidth,
             height: Mwidth * 0.995,
-            color: Colors.black,
+            decoration: BoxDecoration(
+                border: Border.all(color: Colors.black26),
+                color: Color(0x5506A66C)),
+            child: (image.isEmpty)
+                ? Icon(
+                    Icons.sentiment_dissatisfied_outlined,
+                    size: 150,
+                    color: Colors.white,
+                  )
+                : Image.file(image[0]),
           ),
           Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
-              border: Border.all(color: Colors.black),
-            ),
+                borderRadius:
+                    BorderRadius.vertical(bottom: Radius.circular(20)),
+                border: Border.all(color: Colors.black26)),
             width: Mwidth,
             height: Mheight * 0.2,
             child: Center(
               child: Text(
-                content.isEmpty ? "활동 내용" : content[0],
+                content.isEmpty ? "내용이 없습니다." : content[0],
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),

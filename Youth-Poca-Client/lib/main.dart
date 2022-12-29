@@ -4,6 +4,9 @@ import 'package:youth_poca/pages/main_page.dart';
 import 'package:youth_poca/pages/write_page.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+import 'commons/poca_num_list.dart';
+import 'components/portfolio.dart';
+
 Future<bool> getPermission() async {
   Map<Permission, PermissionStatus> permissions =
       await [Permission.storage].request();
@@ -15,9 +18,10 @@ Future<bool> getPermission() async {
   }
 }
 
-void main() {
-  runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   getPermission();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {

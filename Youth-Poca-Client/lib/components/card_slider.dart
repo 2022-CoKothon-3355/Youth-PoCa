@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:youth_poca/components/portfolio.dart';
 import '../commons/common_form_card.dart';
+import '../commons/common_form_portfolio.dart';
 import '../commons/poca_num_list.dart';
 import '../model/poca_info.dart';
 
@@ -83,7 +84,7 @@ class _CardSliderState extends State<CardSlider> {
           )
         : Column(
             children: [
-              Portfolio(images: images!, content: content!, result: result!),
+              portfolio(images!, content!, result!),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: CarouselSlider(
@@ -107,5 +108,30 @@ class _CardSliderState extends State<CardSlider> {
               ),
             ],
           );
+  }
+
+  Widget portfolio(images, content, result) {
+    final Mheight = MediaQuery.of(context).size.height;
+    List<Widget> portNum = [
+      CommonFormPortfolio(image: images, content: content),
+      CommonFormPortfolio(image: images, content: content),
+    ];
+    return CarouselSlider(
+      items: portNum,
+      options: CarouselOptions(
+        height: Mheight * 0.7,
+        autoPlay: false,
+        //padEnds: false,
+        autoPlayInterval: const Duration(seconds: 10),
+        initialPage: 0,
+        viewportFraction: 1,
+        enlargeCenterPage: false,
+        onPageChanged: (index, reason) {
+          setState(
+            () {},
+          );
+        },
+      ),
+    );
   }
 }

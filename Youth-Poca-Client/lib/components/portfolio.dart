@@ -6,19 +6,22 @@ class Portfolio extends StatefulWidget {
   final List<dynamic>? images;
   final List<dynamic>? content;
   final String? result;
+  final int index;
 
-  const Portfolio({this.images, this.content, this.result});
+  const Portfolio(
+      {this.images, this.content, this.result, required this.index});
 
   @override
-  State<Portfolio> createState() => _PortfolioState(images, content, result);
+  State<Portfolio> createState() =>
+      _PortfolioState(images, content, result, index);
 }
 
 class _PortfolioState extends State<Portfolio> {
   final images;
   final content;
   final result;
-
-  _PortfolioState(this.images, this.content, this.result);
+  final index;
+  _PortfolioState(this.images, this.content, this.result, this.index);
   @override
   Widget build(BuildContext context) {
     final Mheight = MediaQuery.of(context).size.height;
